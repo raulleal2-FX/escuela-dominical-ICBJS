@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela Dominical — El Gran Drama de la Redención</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Lora',Georgia,serif;background:#f4f0e8;min-height:100vh}
+.app{max-width:860px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,0.12)}
+.hdr{background:#8b1538;padding:1rem 1.5rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100}
+.logo{width:40px;height:40px;border:2px solid #c9a84c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:#c9a84c;flex-shrink:0}
+.hdr-info{flex:1;min-width:0}
+.hdr-t{color:#fff;font-family:'Cinzel',serif;font-size:1rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr-s{color:#c9a84c;font-size:0.7rem;font-style:italic;margin-top:2px}
+/* PLAN */
+.asec{padding:1.25rem 1.5rem 0}
+.ahdr{display:flex;align-items:center;gap:10px;margin-bottom:0.75rem}
+.abadge{font-family:'Cinzel',serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:0.5px;flex-shrink:0}
+.atitle{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:500;color:#2c1810}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:8px;margin-bottom:1.25rem}
+.cc{background:#faf9f7;border:0.5px solid #e0d8cc;border-radius:8px;padding:0.875rem;cursor:pointer;transition:all 0.15s;position:relative;overflow:hidden}
+.cc:hover{border-color:#c9a84c;transform:translateY(-2px);background:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.07)}
+.cbar{position:absolute;top:0;left:0;right:0;height:3px;border-radius:8px 8px 0 0}
+.cnum{font-size:10px;color:#999;margin-bottom:4px;font-family:'Cinzel',serif}
+.ctit{font-size:0.8rem;font-weight:500;color:#2c1810;line-height:1.3;margin-bottom:3px}
+.hr{height:0.5px;background:#e8e0d4;margin:0 1.5rem}
+.pfooter{text-align:center;padding:1.25rem;font-size:10px;color:#bbb;font-style:italic;border-top:0.5px solid #e8e0d4}
+/* SUSURRO */
+.susurro{margin:0 1.5rem 1.5rem;background:linear-gradient(135deg,#8b1538 0%,#6b0f2a 100%);border-radius:10px;padding:1.5rem;position:relative;overflow:hidden}
+.susurro::before{content:'❝';position:absolute;top:-10px;left:12px;font-size:80px;color:rgba(201,168,76,0.15);font-family:Georgia,serif;line-height:1}
+.susurro-lbl{font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:1.5px;color:#c9a84c;text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;gap:6px}
+.susurro-lbl::after{content:'';flex:1;height:0.5px;background:rgba(201,168,76,0.3)}
+.susurro-txt{font-size:0.92rem;color:#fff;line-height:1.75;font-style:italic;margin-bottom:1rem;position:relative;z-index:1}
+.susurro-ref{font-size:0.78rem;color:#c9a84c;font-style:normal;font-family:'Cinzel',serif;letter-spacing:0.3px}
+/* CLASE */
+.backbtn{display:flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;color:#888;font-size:13px;font-family:'Lora',serif;padding:1.25rem 1.5rem 0.5rem;transition:color 0.15s}
+.backbtn:hover{color:#8b1538}
+.ctop{padding:0 1.5rem 1.25rem}
+.ctag{display:inline-block;font-family:'Cinzel',serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;margin-bottom:0.75rem;letter-spacing:0.5px}
+.cmain{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:700;color:#2c1810;line-height:1.2;margin-bottom:5px}
+.csub{font-size:0.9rem;color:#666;font-style:italic;margin-bottom:0.4rem}
+.cmeta{display:flex;gap:1rem;font-size:11px;color:#aaa;flex-wrap:wrap}
+.vbox{margin:0 1.5rem 1.25rem;background:#fdf8f0;border-left:4px solid #c9a84c;border-radius:0 8px 8px 0;padding:1rem 1.1rem}
+.blbl{font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px}
+.vtxt{font-size:0.88rem;font-style:italic;color:#2c1810;line-height:1.65}
+.catbox{margin:0 1.5rem 1.25rem;border-left:4px solid #8b1538;border-radius:0 8px 8px 0;padding:1rem 1.1rem;background:#fdf5f7}
+.cq{font-size:0.88rem;font-weight:500;color:#2c1810;margin-bottom:4px}
+.ca{font-size:0.88rem;color:#8b1538;font-style:italic}
+.sblk{padding:0 1.5rem 1.25rem}
+.slbl{font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.slbl::after{content:'';flex:1;height:0.5px;background:#e8e0d4}
+.stxt{font-size:0.88rem;line-height:1.75;color:#2c1810}
+.np{margin-bottom:0.75rem}.np:last-child{margin-bottom:0}
+.obox{margin:0 1.5rem 1.25rem;background:#faf9f7;border-radius:8px;padding:1rem 1.1rem}
+.ml{list-style:none}
+.ml li{font-size:0.83rem;color:#666;padding:4px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5;border-bottom:0.5px solid #f0ebe2}
+.ml li:last-child{border-bottom:none}
+.ml li::before{content:'◆';color:#c9a84c;font-size:8px;margin-top:5px;flex-shrink:0}
+@media(max-width:580px){
+  .hdr-t{font-size:0.85rem}
+  .cgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .cmain{font-size:1.25rem}
+  .susurro{margin:0 1rem 1.25rem}
+  .asec{padding:1rem 1rem 0}
+  .hr{margin:0 1rem}
+}
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script>
+const {useState,createElement:h}=React;
+
+const A=[
+  {id:"I",t:"La Creación Gloriosa",c:"#2a5f24",bg:"#eef5ec",ids:[1,2,3,4]},
+  {id:"II",t:"La Caída Trágica",c:"#7a1a1a",bg:"#f5eaea",ids:[5,6,7,8]},
+  {id:"III",t:"La Redención Prometida",c:"#8b1538",bg:"#f5eaed",ids:[9,10,11,12,13,14,15,16]},
+  {id:"IV",t:"La Consumación Gloriosa",c:"#1a3a5c",bg:"#eaeff5",ids:[17,18,19,20]},
+];
+
+const CL=[
+  {n:1,ac:"I",f:"5 abr 2026",t:"En el Principio, Dios",s:"El Creador de todas las cosas",ref:"Génesis 1:1; Salmo 19:1",
+   susurro:"Mariela, antes de que el primer niño entre por esa puerta, recuerda: el mismo Dios que habló y creó los mundos te habla a ti hoy. No eres maestra por accidente — eres instrumento de Aquel que crea de la nada. Él hará en estos niños lo que solo Él puede hacer.",
+   susurroRef:"«Dios eligió lo necio del mundo para avergonzar a los sabios.» — 1 Corintios 1:27 · Calvino: «Dios no necesita de nuestra excelencia, sino de nuestra disponibilidad.»",
+   cq:"¿Quién te hizo?",ca:"Dios me hizo.",v:"En el principio creó Dios los cielos y la tierra. — Génesis 1:1",
+   na:["Antes de que hubiera estrellas, antes de que hubiera océanos, antes de que existiera cualquier cosa... estaba Dios. No la oscuridad, no el vacío — Dios. Él siempre ha existido, sin principio y sin fin.","Y entonces Dios habló. Con solo Su voz aparecieron las estrellas. Todo lo que vemos, todo lo que tocamos, todo lo que existe... Dios lo hizo.","Un Dios tan grande, tan poderoso, que puede crear mundos enteros con solo hablar. Y ese mismo Dios los conoce a ustedes por su nombre."],
+   doc:"Dios es el Creador de todo lo que existe. Creó de la nada (ex nihilo) por la sola palabra de Su poder. Es infinitamente poderoso, autosuficiente y soberano sobre toda la creación.",
+   apl:"Si Dios es tan grande que creó el universo con Sus palabras, ¿podemos confiar en Él cuando tenemos miedo? Este Dios que hizo las estrellas también te ama a ti.",
+   or:"Señor Dios, gracias por crear este mundo tan hermoso. Ayúdame a verte en cada estrella, en cada flor, en cada amanecer. Amén.",
+   mat:["Dibujo del universo para colorear","¿Cuál es tu parte favorita de la creación?","Contar cuántas cosas creó Dios en cada día"]},
+
+  {n:2,ac:"I",f:"19 abr 2026",t:"Y Era Muy Bueno",s:"La perfección de la obra de Dios",ref:"Génesis 1:31; Salmo 104",
+   susurro:"Esposa, madre, maestra — todo eso eres tú hoy, y todo eso es muy bueno a los ojos de Dios. Así como Él miró Su creación y la llamó buena, mira hoy lo que el Señor ha puesto en tus manos: una familia, unos niños, una Palabra. Todo es don de Él. Entra con gratitud.",
+   susurroRef:"«Toda buena dádiva y todo don perfecto desciende de lo alto.» — Santiago 1:17 · Watson: «La gratitud es el eco del corazón que ha recibido gracia.»",
+   cq:"¿Qué más hizo Dios?",ca:"Dios hizo todas las cosas muy buenas.",v:"Y vio Dios todo lo que había hecho, y he aquí que era bueno en gran manera. — Génesis 1:31",
+   na:["Después de cada día de creación, Dios miró lo que había hecho... y era bueno. Al final del sexto día — era MUY bueno.","El sol salía perfecto cada mañana. No había lágrimas, ni miedo, ni muerte. Era el mundo como Dios lo soñó.","Todo lo que Dios crea es bueno porque Él mismo es bueno. Cada cosa hermosa que ves es un recordatorio de Su bondad."],
+   doc:"La creación original de Dios era perfectamente buena. Dios mismo es la fuente de toda bondad. El mal no fue creado por Dios — entró después por el pecado.",
+   apl:"Cuando ves algo hermoso — una flor, un arcoíris — recuerda que es un regalo de un Dios bueno.",
+   or:"Señor, gracias porque todo lo que hiciste es bueno. Ayúdame a ver Tu bondad en todo lo que me rodea. Amén.",
+   mat:["Cada niño dibuja su parte favorita de la creación","Cantar un cántico de alabanza","Lista colectiva: ¿Qué cosas buenas hizo Dios?"]},
+
+  {n:3,ac:"I",f:"3 may 2026",t:"Hechos a Su Imagen",s:"El hombre como corona de la creación",ref:"Génesis 1:26-27; Salmo 8",
+   susurro:"Mariela, tú llevas la imagen de Dios — y también cada niño en esa sala. Hoy no enseñas a niños ordinarios. Enseñas a portadores de la imagen del Rey eterno. Eso cambia todo. Trátalos como lo que son: seres de gloria inestimable, cada uno amado por nombre.",
+   susurroRef:"«Honra a todos.» — 1 Pedro 2:17 · Beeke: «Ver la imago Dei en el otro es el fundamento de todo amor cristiano genuino.»",
+   cq:"¿A semejanza de quién te hizo Dios?",ca:"Dios me hizo a Su propia imagen.",v:"Y creó Dios al hombre a su imagen, a imagen de Dios lo creó. — Génesis 1:27",
+   na:["Cuando llegó el turno del hombre, algo diferente sucedió: 'Hagamos al hombre a Nuestra imagen.'","De toda la creación, solo el ser humano fue hecho para parecerse a Dios en el alma: podemos pensar, amar, crear, adorar.","Tú llevas la imagen de Dios en tu interior. Eso te hace un ser de infinito valor."],
+   doc:"El ser humano fue creado a la imagen de Dios (imago Dei), reflejando razón, moralidad, relacionalidad, creatividad y adoración. Esta imagen es la base de la dignidad humana.",
+   apl:"Si llevas la imagen de Dios, entonces cada persona a tu lado también la lleva. ¿Cómo tratas a tus amigos y hermanos?",
+   or:"Señor, gracias por hacerme a Tu imagen. Ayúdame a amar a los demás como Tú los amas. Amén.",
+   mat:["Espejo pequeño — 'mira la imagen de Dios en ti'","Dibujo de figura humana con 'Imago Dei'","¿En qué cosas te pareces a Dios?"]},
+
+  {n:4,ac:"I",f:"17 may 2026",t:"El Jardín del Rey",s:"Adán, Eva y el hogar perfecto",ref:"Génesis 2:7-25",
+   susurro:"Hoy enseñas que el propósito del ser humano es conocer a Dios y gozar de Él. Mariela, ¿lo estás experimentando tú? Antes de enseñarlo, recíbelo: eres amada, conocida y sostenida por el mismo Dios que plantó el Edén. Tu hogar, tu familia, son también un jardín de Su gracia.",
+   susurroRef:"«El fin principal del hombre es glorificar a Dios y gozar de Él para siempre.» — Catecismo Menor de Westminster, P.1 · Owen: «El conocimiento de Dios es el mayor bien que el alma puede poseer.»",
+   cq:"¿Para qué te hizo Dios?",ca:"Dios me hizo para conocerle, amarle y glorificarle.",v:"Y Jehová Dios formó al hombre del polvo de la tierra, y sopló en su nariz aliento de vida. — Génesis 2:7",
+   na:["Dios plantó el jardín del Edén — el hogar perfecto preparado como regalo para sus hijos.","Formó a Adán del polvo y sopló aliento de vida. ¡Y Adán vivió! Como un hijo amado, en comunión con su Padre.","En ese jardín podían caminar con Dios, conocerle. Eso era la vida perfecta."],
+   doc:"El Edén revela el propósito del ser humano: disfrutar de la comunión de Dios. El fin principal del hombre es glorificar a Dios y gozar de Él para siempre.",
+   apl:"Dios te creó para conocerle y amarlo. Cuando oramos y leemos la Biblia, estamos haciendo exactamente para lo que fuimos creados.",
+   or:"Señor, gracias por crearme para conocerte. Que Tú seas lo mejor de mi vida. Amén.",
+   mat:["Dibujo del jardín del Edén para colorear","Carta corta a Dios: ¿por qué les gusta conocerle?","¿Para qué fueron creados?"]},
+
+  {n:5,ac:"II",f:"31 may 2026",t:"La Gran Mentira",s:"La tentación y la caída del hombre",ref:"Génesis 3:1-13",
+   susurro:"Hoy hablas del pecado — la verdad más difícil, y la más necesaria. No temas decirla con claridad y con amor. Mariela, el Espíritu Santo puede usar una maestra valiente para plantar convicción en un corazón de niño. Habla la verdad, siempre envuelta en gracia.",
+   susurroRef:"«La verdad sin amor es crueldad; el amor sin verdad es cobardía.» — Spurgeon · «Conoced la verdad, y la verdad os hará libres.» — Juan 8:32",
+   cq:"¿Cumplieron Adán y Eva el mandamiento de Dios?",ca:"No. Pecaron y nos trajeron el pecado a todos.",v:"Por tanto, como el pecado entró en el mundo por un hombre, así la muerte pasó a todos los hombres. — Romanos 5:12",
+   na:["Todo era perfecto. Pero Dios les había dicho: 'De este árbol no coman.' Solo uno. Una prueba de amor y confianza.","Entonces vino la serpiente: '¿De verdad dijo Dios...?' Sembró una duda. Luego mintió: '¡Serán como Dios!' La gran mentira.","Eva comió. Y le dio a Adán. En ese momento, todo cambió. El mundo se rompió."],
+   doc:"La Caída introdujo el pecado en la creación. La transgresión de Adán como representante federal nos trajo pecado original, culpa y muerte a todos.",
+   apl:"El pecado siempre comienza con una duda sobre si Dios es bueno. ¿Qué mentiras les dicen a veces?",
+   or:"Señor, perdóname porque yo también peco. Ayúdame a creer que Tus palabras son verdad. Amén.",
+   mat:["Drama: actuar la escena en el jardín","Mentiras que el mundo nos dice sobre Dios","Reflexión honesta sobre la desobediencia"]},
+
+  {n:6,ac:"II",f:"14 jun 2026",t:"Pero Dios Prometió",s:"El Proto-Evangelio: la primera promesa de salvación",ref:"Génesis 3:15, 21",
+   susurro:"Mariela, hoy llevas la mejor noticia del universo: que Dios no abandona a los que fallan. Cuando sientas que no eres suficiente como maestra, como mamá, como esposa — recuerda que esta misma promesa es para ti. Él corre hacia los que se esconden, no al revés.",
+   susurroRef:"«El amor del Padre es la misma fuente del Evangelio.» — Calvino · «No hay pecado tan grande que pueda agotar la gracia de Dios.» — Romanos 5:20",
+   cq:"¿Los dejó Dios perdidos en su pecado?",ca:"No. Dios prometió enviar a alguien que los salvaría.",v:"Y pondré enemistad entre ti y la mujer... él te herirá en la cabeza. — Génesis 3:15",
+   na:["Adán y Eva se escondieron. Tenían vergüenza, miedo, culpa. Esperaban castigo... ¿qué haría Dios?","Pero Dios vino al jardín. Y antes de una sola palabra de juicio, hizo una promesa de un Salvador.","Luego tomó pieles de animales y vistió a Adán y Eva — un animal murió para cubrirlos."],
+   doc:"Génesis 3:15 es el Proto-Evangelio. Dios promete un Redentor desde el momento de la Caída. La salvación fue el plan eterno de Dios.",
+   apl:"¿Sabías que Dios corre hacia ti para restaurarte cuando fallas? Como hizo con Adán y Eva. Eso se llama gracia.",
+   or:"Señor, gracias porque cuando fallamos, no nos abandonas. Tu amor es más grande que todos nuestros errores. Amén.",
+   mat:["Línea de tiempo: de Génesis 3:15 hasta la cruz","Dibujo del cubrimiento con pieles","¿Qué significa que Dios te 'cubre'?"]},
+
+  {n:7,ac:"II",f:"28 jun 2026",t:"El Mundo Roto y la Gracia",s:"Noé, el diluvio y el arcoíris del pacto",ref:"Génesis 6:5-8; 9:8-17",
+   susurro:"Como Noé, tú también estás llamada a ser fiel mientras el mundo a tu alrededor sigue otro camino. Mariela, tu fidelidad en este salón de clases quizás no la vea nadie — pero Dios la ve. Y así como guardó a Noé dentro del arca, Él te guarda a ti dentro de Su gracia.",
+   susurroRef:"«Mas Noé halló gracia ante los ojos de Jehová.» — Génesis 6:8 · Spurgeon: «La gracia de Dios no busca mérito; crea el que no existe.»",
+   cq:"¿Cómo muestra Dios su misericordia?",ca:"Dios muestra su misericordia salvando a los que no lo merecen.",v:"Mas Noé halló gracia ante los ojos de Jehová. — Génesis 6:8",
+   na:["Pasaron generaciones. El pecado creció. Pero había un hombre: Noé. No perfecto — pero creyente, que caminaba con Dios.","Dios le dijo: 'Construye un arca.' Noé obedeció. La lluvia vino. Dentro del arca, la familia estaba segura.","Cuando salieron, Dios pintó el cielo: un arcoíris. Su promesa de gracia para siempre."],
+   doc:"El diluvio muestra la santidad de Dios (que juzga el pecado) y Su misericordia soberana (que salva por gracia). El arca es tipo de Cristo.",
+   apl:"Desde hoy, cada arcoíris es una promesa de Dios — un recordatorio de que Él es fiel.",
+   or:"Señor, gracias por ser fiel a Tus promesas. Cuando vea un arcoíris, ayúdame a recordar Tu amor. Amén.",
+   mat:["Hacer un arcoíris mientras memorizan la promesa","Lista de promesas de Dios en la Biblia","Mapa del arca con animales para colorear"]},
+
+  {n:8,ac:"II",f:"12 jul 2026",t:"La Torre de los Necios",s:"Babel y el orgullo humano",ref:"Génesis 11:1-9",
+   susurro:"Hoy enseñas sobre el orgullo — esa raíz que todos llevamos. Mariela, la maestra más poderosa no es la que sabe más, sino la que más depende de Dios. Entra hoy sin la confianza en tu preparación, sino en el Espíritu que prometió guiarnos en toda verdad.",
+   susurroRef:"«Dios resiste a los soberbios, y da gracia a los humildes.» — 1 Pedro 5:5 · Owen: «La humildad es la condición del alma que Dios no puede dejar sin llenar.»",
+   cq:"¿Cuál es la raíz de toda rebelión contra Dios?",ca:"El orgullo — querer ser como Dios sin necesitar a Dios.",v:"Dios resiste a los soberbios, y da gracia a los humildes. — 1 Pedro 5:5",
+   na:["Los hijos de Noé dijeron: 'Construyamos una torre que llegue hasta el cielo.' Querían la gloria sin necesitar a Dios.","Era el mismo pecado del jardín con ladrillos y argamasa. Dios bajó y los confundió.","Pentecostés revirtió Babel — personas de todas las lenguas entendieron el Evangelio."],
+   doc:"Babel ilustra el orgullo — raíz de toda rebelión. Pero Dios usó la dispersión para Su propósito misional.",
+   apl:"¿Cuándo intentas ser el más importante... de quién te olvidas? La humildad es creer que Dios es el más grande.",
+   or:"Señor, perdóname cuando quiero ser el centro. Que mi corazón diga: haz grande Tu nombre. Amén.",
+   mat:["Construir una torre con bloques y dejarla caer","Mapa de las naciones dispersadas","Conectar con Pentecostés: Hechos 2"]},
+
+  {n:9,ac:"III",f:"26 jul 2026",t:"El Amigo de Dios",s:"Abraham y el Pacto de Gracia",ref:"Génesis 12:1-3; 15:1-6",
+   susurro:"Abraham dejó lo conocido porque confió en la voz de Dios. Tú también dejaste algo cada quincena — tiempo, descanso, comodidad — para estar aquí. Mariela, eso es fe. Dios ve esa fe y la cuenta como justicia, igual que contó la de Abraham. Él honra a los que caminan por fe.",
+   susurroRef:"«El justo por la fe vivirá.» — Habacuc 2:4 · Calvino: «La fe no se apoya en lo que vemos, sino en lo que Dios ha prometido.»",
+   cq:"¿Cómo nos salva Dios?",ca:"Dios nos salva por Su gracia, a través de la fe, como salvó a Abraham.",v:"Y creyó Abraham a Dios, y le fue contado por justicia. — Génesis 15:6",
+   na:["De todos los hombres, Dios escogió a uno: Abram. No por ser el más bueno. Solo porque Dios quiso. Así funciona la gracia.","'Deja tu tierra, tu familia, tu hogar.' Una promesa enorme: confía en Mí aunque no puedas ver el camino. Y Abram fue.","'Cuenta las estrellas... así será tu descendencia.' Era imposible. Pero Abraham creyó a Dios. Y esa fe fue contada como justicia."],
+   doc:"Abraham es el padre de todos los creyentes (Romanos 4). La salvación siempre ha sido por fe, no por obras. La promesa se cumple en Cristo (Gálatas 3:16).",
+   apl:"Abraham no podía ver el futuro. Pero creyó de todas formas. ¿Qué significa confiar en Dios cuando no podemos ver lo que viene?",
+   or:"Señor, quiero tener la fe de Abraham — creer en Tus promesas aunque no las pueda ver. Amén.",
+   mat:["Contar 'estrellas' en papel negro con puntos blancos","Línea de tiempo de las promesas a Abraham","¿Cómo se cumplió la promesa en Jesús?"]},
+
+  {n:10,ac:"III",f:"9 ago 2026",t:"El Cordero en el Monte",s:"Isaac y el sacrificio que apunta a Cristo",ref:"Génesis 22:1-18",
+   susurro:"Jehovah-Jireh — el Señor proveerá. Mariela, lo que necesitas para esta clase, para esta semana, para ser la madre y esposa que quieres ser — Él lo proveerá. No porque lo merezcas, sino porque es fiel. Confía hoy como Abraham confió en el monte.",
+   susurroRef:"«En el monte de Jehová será provisto.» — Génesis 22:14 · Spurgeon: «Dios siempre llega a tiempo, aunque a veces llegue en el último momento.»",
+   cq:"¿Qué muestra el sacrificio de Isaac?",ca:"Que Dios mismo proveería el cordero para salvarnos.",v:"En el monte de Jehová será provisto. — Génesis 22:14",
+   na:["Dios le dijo a Abraham: 'Toma a tu hijo, tu único hijo Isaac, a quien amas, y ofrécelo.' ¡El hijo de la promesa!","Pero Abraham obedeció. 'Papá, ¿dónde está el cordero?' Abraham respondió: 'Dios proveerá el cordero.'","En el último momento, Dios detuvo a Abraham. En un arbusto había un carnero — el sustituto."],
+   doc:"Isaac es el tipo más claro de Cristo en el AT. La sustitución del carnero prefigura la expiación sustitutoria.",
+   apl:"Jehovah-Jireh: 'El Señor proveerá.' Él proveyó el mayor regalo: a Su Hijo.",
+   or:"Señor, gracias porque Tú provees. Gracias por dar a Tu Hijo Jesús por nosotros. Amén.",
+   mat:["Drama de la historia de Abraham e Isaac","Dibujo del monte Moriah","Conectar directamente con Juan 3:16"]},
+
+  {n:11,ac:"III",f:"23 ago 2026",t:"El Libertador",s:"Moisés, la Pascua y la liberación de Egipto",ref:"Éxodo 3:7-10; 12:1-13",
+   susurro:"Dios escuchó el clamor de Su pueblo en Egipto. Y escucha el tuyo hoy — cuando estás cansada, cuando sientes que no alcanzas, cuando la semana ha sido larga. Mariela, el mismo Dios que liberó a Israel te sostiene a ti. Entra a clase como alguien que ya fue librada.",
+   susurroRef:"«Jehová escuchó nuestro clamor.» — Deuteronomio 26:7 · Beeke: «La oración no es el último recurso del creyente — es su primer instinto.»",
+   cq:"¿Qué nos enseña la Pascua sobre Jesús?",ca:"Que la sangre del Cordero nos protege del juicio de Dios.",v:"Porque nuestra pascua, que es Cristo, ya fue sacrificada. — 1 Corintios 5:7",
+   na:["El pueblo de Dios era esclavo en Egipto — 400 años. Dios escuchó su clamor y envió a Moisés.","Llegó la Pascua: 'Tomen un cordero sin defecto. Pongan su sangre en los postes de su puerta.'","Lo único que los protegía era la sangre del cordero. Jesús es nuestro Cordero Pascual."],
+   doc:"La Pascua es el gran evento tipológico del AT. El cordero sin defecto prefigura a Cristo. La sangre en los postes ilustra la justificación.",
+   apl:"¿Qué te salva del juicio de Dios? No tus buenas acciones. Solo la sangre de Jesús.",
+   or:"Señor Jesús, gracias por ser mi Cordero Pascual. Gracias por Tu sangre derramada por mí. Amén.",
+   mat:["Drama de la Pascua con los niños","Dibujo del cordero y sangre en la puerta","Conexión directa con la Cena del Señor"]},
+
+  {n:12,ac:"III",f:"6 sep 2026",t:"La Ley del Rey",s:"Los Diez Mandamientos y el corazón humano",ref:"Éxodo 20:1-17; Mateo 22:37-40",
+   susurro:"La Ley nos muestra lo que somos para llevarnos a Cristo. Mariela, no enseñas estas reglas para que los niños las cumplan — las enseñas para que vean cuánto necesitan a Jesús. Tú también. Hoy, antes de enseñar la Ley, descansa en la gracia que la cumplió por ti.",
+   susurroRef:"«Cristo es el fin de la ley para justicia a todo aquel que cree.» — Romanos 10:4 · Calvino: «La Ley es el espejo que nos muestra nuestra impureza para que corramos al Médico.»",
+   cq:"¿Para qué nos dio Dios Sus mandamientos?",ca:"Para mostrarnos cómo es Dios, lo que necesitamos, y cómo vivir.",v:"Amarás al Señor tu Dios con todo tu corazón. — Mateo 22:37",
+   na:["En el monte Sinaí, Dios habló. Primero se identificó como el Salvador — luego habló la Ley.","¿Cumplimos perfectamente los mandamientos? No. Nadie puede. La Ley nos muestra que necesitamos a alguien que los cumpla por nosotros.","Jesús los cumplió todos. Perfectamente. En nuestro lugar."],
+   doc:"La Ley tiene tres usos: frenar el pecado, mostrarlo para llevarnos a Cristo, y guiar la vida del creyente.",
+   apl:"¿Cuál mandamiento es el más difícil para ti? La Ley es como un espejo. Cuando nos vemos en ella, corremos a Jesús.",
+   or:"Señor, gracias por Tu Ley que me muestra mi pecado. Gracias porque Jesús cumplió lo que yo no pude. Amén.",
+   mat:["Los 10 mandamientos en tarjetas para memorizar","Espejo físico: 'la ley es un espejo'","Drama: intentar cumplirlos y ver que necesitamos a Jesús"]},
+
+  {n:13,ac:"III",f:"20 sep 2026",t:"El Rey que Dios Amó",s:"David y el Pacto Davídico",ref:"1 Samuel 16:7; 2 Samuel 7:12-16; Salmo 23",
+   susurro:"Dios no escogió a David por su grandeza — lo escogió mirando su corazón. Mariela, Dios tampoco te escogió por tus títulos ni tu elocuencia. Te escogió porque ve en ti un corazón que lo busca. Eso es suficiente. Más que suficiente. Él completa lo que le falta al corazón que lo desea.",
+   susurroRef:"«Jehová no mira lo que mira el hombre; el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón.» — 1 Samuel 16:7 · Beeke: «El corazón rendido es el mayor talento que podemos traer al servicio de Dios.»",
+   cq:"¿Qué clase de rey buscaba Dios?",ca:"Un rey según Su corazón — que apuntara al Rey eterno, Jesús.",v:"Yo le seré a él padre, y él me será a mí hijo. — 2 Samuel 7:14",
+   na:["Dios envió a Samuel a Belén. Los hermanos grandes desfilaron. 'No es ninguno de estos.' El más pequeño estaba en el campo, cuidando ovejas.","'Levántate y úngelo.' David — el pastor que se convirtió en rey. Porque Dios no mira el exterior; Dios mira el corazón.","Dios prometió a David: uno de sus descendientes reinaría para siempre. Jesús es ese Rey eterno."],
+   doc:"El Pacto Davídico promete un rey eterno del linaje de David. Todos los reyes de Israel fracasaron. Cristo es el cumplimiento.",
+   apl:"David cometió errores — pero cuando pecaba, se arrepentía. Un corazón según Dios vuelve a Dios cuando falla.",
+   or:"Señor, quiero tener un corazón como el de David. Gracias porque Jesús es mi Rey eterno. Amén.",
+   mat:["Memorizar el Salmo 23 juntos","Historia de David y Goliat","Árbol genealógico de David a Jesús"]},
+
+  {n:14,ac:"III",f:"4 oct 2026",t:"Los Mensajeros del Rey",s:"Los profetas anuncian al Mesías",ref:"Isaías 53:1-6; Miqueas 5:2; Isaías 7:14",
+   susurro:"Los profetas hablaron siglos antes de ver el cumplimiento. Tú también plantas hoy sin ver todavía el fruto. Mariela, las palabras que dices hoy sobre Jesús pueden germinar en un corazón de niño décadas después. Habla con fidelidad. El cumplimiento le pertenece a Dios.",
+   susurroRef:"«Así será mi palabra... no volverá a mí vacía.» — Isaías 55:11 · Spurgeon: «El predicador fiel siembra; el Espíritu Santo da el crecimiento.»",
+   cq:"¿Qué anunciaban los profetas?",ca:"Anunciaban que vendría el Salvador prometido por Dios.",v:"Mas él herido fue por nuestras rebeliones, molido por nuestros pecados. — Isaías 53:5",
+   na:["Durante cientos de años, Dios envió profetas que apuntaban hacia adelante. Miqueas: nacerá en Belén. Isaías: una virgen concebirá a Emanuel.","Isaías 53: un hombre herido, molido, despreciado. Castigado en nuestro lugar. Escrito 700 años antes de Jesús.","¿Cómo supieron? El Espíritu de Dios les reveló lo que vendría. Toda la Biblia apunta a la cruz de Jesucristo."],
+   doc:"La profecía mesiánica prueba la inspiración divina de las Escrituras. Cristo fue el cumplimiento de siglos de promesa divina.",
+   apl:"¿Pueden nombrar profecías cumplidas en Jesús? Cuando ven todo esto, ¿cómo pueden dudar de que la Biblia es la Palabra de Dios?",
+   or:"Señor, gracias porque toda Tu Biblia habla de Jesús. Ayúdame a amarla y leerla cada día. Amén.",
+   mat:["Tabla de profecías y cumplimientos en Jesús","Leer Isaías 53 y conectar con los Evangelios","Quiz: ¿Qué profeta dijo esto?"]},
+
+  {n:15,ac:"III",f:"18 oct 2026",t:"¡El Rey Ha Venido!",s:"La Encarnación — Dios se hizo hombre",ref:"Lucas 2:1-20; Juan 1:1-14",
+   susurro:"Dios no salvó a la humanidad desde la distancia — vino. Se encarnó. Estuvo presente. Mariela, tu presencia en este salón también importa. No delegues lo que Dios puso en tus manos. Estar ahí, semana a semana, es también una forma de encarnación del amor de Dios hacia estos niños.",
+   susurroRef:"«El Verbo fue hecho carne y habitó entre nosotros.» — Juan 1:14 · Calvino: «Cristo no nos salvó a distancia. Se hizo uno de nosotros para llevarnos a Dios.»",
+   cq:"¿Quién es Jesucristo?",ca:"El Hijo eterno de Dios, que se hizo hombre para salvarnos.",v:"Y aquel Verbo fue hecho carne, y habitó entre nosotros. — Juan 1:14",
+   na:["Durante 400 años después de los últimos profetas, el cielo estuvo en silencio. El pueblo esperaba.","Y entonces — en la noche más ordinaria — el cielo irrumpió: '¡No teman! Os ha nacido hoy un Salvador.' El Verbo eterno se hizo bebé.","¿Por qué? Para vivir la vida perfecta que nosotros no pudimos vivir. Para morir la muerte que merecíamos."],
+   doc:"La Encarnación: el Hijo eterno tomó naturaleza humana, siendo verdadero Dios y verdadero hombre.",
+   apl:"Jesús no vino a los palacios — vino al pesebre. No escogió a los poderosos — escogió a los pastores. ¿Cómo te ve Dios a ti?",
+   or:"Señor Jesús, gracias por hacerte hombre por mí. Que nunca deje de maravillarme que el Dios del universo se hizo bebé por amor a mí. Amén.",
+   mat:["Nacimiento de Jesús dramatizado por los niños","Juan 1:1-14 leído juntos despacio","¿Por qué tuvo que ser Dios Y hombre al mismo tiempo?"]},
+
+  {n:16,ac:"III",f:"1 nov 2026",t:"Él Murió Por Nosotros",s:"La Cruz y la expiación sustitutoria",ref:"Marcos 15:22-39; Romanos 5:8",
+   susurro:"Hoy llevas el centro del universo a ese salón. La cruz no es un tema entre muchos — es el corazón de todo. Mariela, cuando hables de lo que Jesús sufrió, hazlo con reverencia y asombro. Él murió por ti también. Recíbelo antes de enseñarlo.",
+   susurroRef:"«Dios demuestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.» — Romanos 5:8 · Owen: «La muerte de Cristo fue la muerte de la muerte en la muerte de Cristo.»",
+   cq:"¿Por qué murió Jesús?",ca:"Murió en nuestro lugar, para pagar el castigo que nosotros merecíamos.",v:"Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros. — Romanos 5:8",
+   na:["El Hijo de Dios — sin pecado — fue arrestado, azotado, coronado de espinas, clavado en una cruz. El cielo se oscureció.","El Padre puso sobre el Hijo todos los pecados de todos Sus hijos. Y Jesús los cargó. El Padre derramó Su ira perfecta sobre el Hijo en lugar de sobre nosotros.","Jesús gritó: '¡Consumado es!' No con derrota — sino '¡está pagado, completo, terminado para siempre!'"],
+   doc:"La expiación sustitutoria es el corazón del Evangelio: Cristo tomó nuestro lugar, cargando la ira que nuestro pecado mereció.",
+   apl:"Ese pecado específico que cometiste fue cargado por Jesús en la cruz. Él no murió en general. Murió por TI.",
+   or:"Señor Jesús, gracias por morir en mi lugar. Que nunca pierda el asombro de lo que hiciste. Amén.",
+   mat:["Leer Marcos 15 dramáticamente en voz alta","Dibujo de la cruz con los nombres de los niños","Cantar un himno de la crucifixión juntos"]},
+
+  {n:17,ac:"IV",f:"15 nov 2026",t:"¡Vive!",s:"La Resurrección — victoria sobre la muerte",ref:"Lucas 24:1-12; 1 Corintios 15:20-22",
+   susurro:"¡Él vive, Mariela! Y porque Él vive, tú tienes vida. Cuando entres a ese salón hoy, entra como alguien que sabe que la tumba está vacía. Esa alegría — no forzada, sino nacida de la certeza de la resurrección — es el mejor regalo que puedes dar a esos niños hoy.",
+   susurroRef:"«Mas ahora Cristo ha resucitado de los muertos.» — 1 Corintios 15:20 · Spurgeon: «Porque Él vive, podemos enfrentar el mañana. Porque Él vive, todo temor se va.»",
+   cq:"¿Qué prueba la resurrección de Jesús?",ca:"Que Jesús es el Hijo de Dios y que nuestra salvación está completa.",v:"Mas ahora Cristo ha resucitado de los muertos; primicias de los que durmieron es hecho. — 1 Corintios 15:20",
+   na:["Las mujeres fueron al sepulcro al amanecer. Sus corazones estaban rotos. Pero el sepulcro estaba abierto. Vacío.","Un ángel: '¿Por qué buscan entre los muertos al que vive? No está aquí — ha resucitado.' Jesús se apareció a más de 500 personas.","Si Jesús no resucitó, nuestra fe es vacía. Pero resucitó — y entonces la muerte ya no tiene la última palabra."],
+   doc:"La Resurrección es la vindicación divina de Cristo — Dios declarando que la obra de Jesús fue perfecta. Sin resurrección, no hay Evangelio.",
+   apl:"Los que pertenecen a Jesús no necesitan temer la muerte — Jesús ya la venció. ¿Cómo cambia esto la manera en que vivimos?",
+   or:"Señor Jesús, gracias porque resucitaste. Ayúdame a vivir con la alegría de alguien que sabe que Tú has vencido. Amén.",
+   mat:["Sepulcro vacío con piedra rodada (manualidad)","1 Corintios 15 leído como gran proclamación","Lista de apariciones post-resurrección de Jesús"]},
+
+  {n:18,ac:"IV",f:"29 nov 2026",t:"Su Iglesia",s:"El pueblo de Dios reunido por el Espíritu",ref:"Hechos 2:1-4, 41-47; Efesios 2:19-22",
+   susurro:"Hoy enseñas que la Iglesia es familia. Mariela, tú eres parte de esa familia — no solo maestra, sino hermana, hija del mismo Padre. Y estos niños que enseñas son también familia tuya en Cristo. Que ese amor fraternal se note hoy en la manera en que los miras, los escuchas y los abrazas con la Palabra.",
+   susurroRef:"«Ya no sois extranjeros ni advenedizos, sino miembros de la familia de Dios.» — Efesios 2:19 · Calvino: «Fuera de la Iglesia no hay salvación, porque Dios es el Padre de los que tiene a la Iglesia como madre.»",
+   cq:"¿Qué es la Iglesia?",ca:"El pueblo de Dios reunido por el Espíritu Santo alrededor de Cristo.",v:"Ya no sois extranjeros ni advenedizos, sino miembros de la familia de Dios. — Efesios 2:19",
+   na:["En Pentecostés, el Espíritu vino como viento poderoso y lenguas de fuego. Los discípulos salieron y personas de todas las naciones los entendían.","Ese día, tres mil personas creyeron. La Iglesia nació — el gran proyecto de Dios en la tierra.","¿Qué hacían? Se reunían para la doctrina, la comunión, partir el pan y orar. Se amaban. Compartían. Eso somos nosotros."],
+   doc:"La Iglesia es el cuerpo de Cristo, convocada por el Espíritu Santo. Pertenecer a una iglesia local es el diseño de Dios para Sus hijos.",
+   apl:"¿Por qué venimos a la iglesia? Porque aquí somos fortalecidos, amados y enseñados. ¿Cómo puedes servir aunque seas niño?",
+   or:"Señor, gracias por Tu Iglesia, por darnos un pueblo, una familia. Ayúdame a amar a mis hermanos y a servir. Amén.",
+   mat:["Historia de Pentecostés dramatizada","Mapa de cómo el Evangelio se esparció","¿Cómo puedo servir en la iglesia?"]},
+
+  {n:19,ac:"IV",f:"13 dic 2026",t:"Él Volverá",s:"El regreso de Cristo y el fin de la historia",ref:"1 Tesalonicenses 4:13-18; Apocalipsis 19:11-16",
+   susurro:"Mariela, ya casi terminamos el año. Y la historia también va hacia su final glorioso. Todo lo que has enseñado, todo lo que has sembrado — llegará a su consumación cuando Él vuelva. Vive y enseña hoy con esa esperanza. El regreso de Cristo hace que cada clase valga la eternidad.",
+   susurroRef:"«Maranata — ¡Ven, Señor Jesús!» — Apocalipsis 22:20 · Beeke: «La esperanza del retorno de Cristo no nos hace escapar del mundo — nos hace trabajar en él con mayor fervor.»",
+   cq:"¿Qué esperamos los que amamos a Jesús?",ca:"Esperamos que Jesús regrese para llevar a Su pueblo a estar con Él para siempre.",v:"Y el Señor mismo descenderá del cielo. — 1 Tesalonicenses 4:16",
+   na:["La historia del mundo va hacia un destino glorioso: el regreso de Jesucristo. Antes de subir al cielo, Jesús prometió: 'Vendré otra vez.'","Volverá como Rey de reyes — en gloria, con poder. Cada rodilla se doblará. Toda lengua confesará que Jesús es el Señor.","Para los que le aman, ese día será el mejor de la historia. Por eso proclamamos el Evangelio."],
+   doc:"La Segunda Venida de Cristo es personal, visible, corporal y gloriosa. La esperanza escatológica motiva santidad y misión hoy.",
+   apl:"Si supieras que Jesús regresa la próxima semana, ¿vivirías diferente? Su regreso nos debe motivar a vivir santamente.",
+   or:"Señor Jesús, ven pronto. Ayúdame a vivir de tal manera que cuando vengas, me encuentres fiel. Maranata. Amén.",
+   mat:["Línea de tiempo: Creación → Cruz → Hoy → Segunda Venida → Eternidad","Apocalipsis 19:11-16 leído dramáticamente","¿Qué harías diferente si Jesús vuelve pronto?"]},
+
+  {n:20,ac:"IV",f:"27 dic 2026",t:"Todo Nuevo",s:"La Nueva Creación — el hogar eterno",ref:"Apocalipsis 21:1-5; 22:1-5",
+   susurro:"Llegamos al final, Mariela. Y el final es gloria. Todo lo que enseñaste este año — cada clase, cada verso memorizado, cada oración de un niño — forma parte del Gran Drama que termina en la Nueva Creación. Hoy enseñas el final de la historia más hermosa jamás contada. Hazlo con lágrimas de gozo.",
+   susurroRef:"«He aquí, yo hago nuevas todas las cosas.» — Apocalipsis 21:5 · Watson: «El cielo no será solo la ausencia del mal — será la plenitud perfecta de todo bien, y ese bien es Dios mismo.»",
+   cq:"¿Cuál es la esperanza final de los que aman a Dios?",ca:"Vivir para siempre con Dios en el cielo nuevo y la tierra nueva, sin pecado ni muerte.",v:"He aquí, yo hago nuevas todas las cosas. — Apocalipsis 21:5",
+   na:["¿Recuerdan el Edén? La historia de la Biblia no termina en ruinas — termina en gloria. Mayor que el Edén.","Juan vio cielos nuevos y tierra nueva. La Nueva Jerusalén descendiendo. Dios mismo morando con Su pueblo. No habrá más llanto, ni dolor, ni muerte.","'Sus siervos le servirán, y verán Su rostro.' Ver el rostro de Dios. Estar con Él para siempre. Para eso fuimos creados."],
+   doc:"La consumación es la redención y renovación de la creación. La presencia plena de Dios (visio Dei) es la bienaventuranza suprema.",
+   apl:"Han recorrido toda la historia de la Biblia. ¿Qué aprendieron sobre Dios? ¿Aman más a Jesús que cuando comenzamos?",
+   or:"Señor, gracias por este año de aprender Tu historia. Gracias porque el final es mejor que el principio. Amén.",
+   mat:["Dibujo de la Nueva Jerusalén","Repaso de las 20 clases con preguntas y premios","Carta especial a los niños: El Gran Drama que vivirán"]},
+];
+
+function ga(id){return A.find(a=>a.ids.includes(id));}
+
+function App(){
+  const [view,setView]=useState('plan');
+  const [cl,setCl]=useState(null);
+  const openCl=(c)=>{setCl(c);setView('cl');window.scrollTo(0,0);};
+  const back=()=>{setView('plan');window.scrollTo(0,0);};
+  return h('div',{className:'app'},
+    h('div',{className:'hdr'},
+      h('div',{className:'logo'},'JES'),
+      h('div',{className:'hdr-info'},
+        h('div',{className:'hdr-t'},'Escuela Dominical · El Gran Drama de la Redención'),
+        h('div',{className:'hdr-s'},'Iglesia Cristiana Bíblica "Jesucristo es el Señor" · Cuernavaca')
+      )
+    ),
+    view==='plan'&&h(Plan,{onOpen:openCl}),
+    view==='cl'&&cl&&h(Clase,{cl,onBack:back})
+  );
+}
+
+function Plan({onOpen}){
+  return h('div',null,
+    A.map(ac=>h('div',{className:'asec',key:ac.id},
+      h('div',{className:'ahdr'},
+        h('span',{className:'abadge',style:{background:ac.bg,color:ac.c}},'ACTO '+ac.id),
+        h('span',{className:'atitle'},ac.t)
+      ),
+      h('div',{className:'cgrid'},
+        CL.filter(c=>c.ac===ac.id).map(c=>h('div',{className:'cc',key:c.n,onClick:()=>onOpen(c)},
+          h('div',{className:'cbar',style:{background:ac.c}}),
+          h('div',{className:'cnum'},'Clase '+c.n+' · '+c.f),
+          h('div',{className:'ctit'},c.t),
+          h('div',{style:{fontSize:10,color:ac.c,marginTop:2}},c.s)
+        ))
+      ),
+      h('div',{className:'hr'})
+    )),
+    h('div',{className:'pfooter'},'20 clases · 5 abr – 27 dic 2026 · ICBJCS · Cuernavaca, Morelos')
+  );
+}
+
+function Clase({cl,onBack}){
+  const ac=ga(cl.n);
+  return h('div',null,
+    h('button',{className:'backbtn',onClick:onBack},'← Volver al plan'),
+    h('div',{className:'susurro'},
+      h('div',{className:'susurro-lbl'},'Susurro para ti, Mariela'),
+      h('div',{className:'susurro-txt'},cl.susurro),
+      h('div',{className:'susurro-ref'},cl.susurroRef)
+    ),
+    h('div',{className:'ctop',style:{borderTop:'3px solid '+ac.c}},
+      h('div',{className:'ctag',style:{background:ac.bg,color:ac.c}},'ACTO '+ac.id+' · '+ac.t),
+      h('div',{className:'cmain'},cl.t),
+      h('div',{className:'csub'},cl.s),
+      h('div',{className:'cmeta'},h('span',null,'Clase '+cl.n),h('span',null,cl.f),h('span',null,cl.ref))
+    ),
+    h('div',{className:'vbox'},
+      h('div',{className:'blbl',style:{color:'#c9a84c'}},'Verso para memorizar'),
+      h('div',{className:'vtxt'},cl.v)
+    ),
+    h('div',{className:'catbox'},
+      h('div',{className:'blbl',style:{color:'#8b1538'}},'Catecismo de la clase'),
+      h('div',{className:'cq'},'P: '+cl.cq),
+      h('div',{className:'ca'},'R: '+cl.ca)
+    ),
+    h('div',{className:'sblk'},
+      h('div',{className:'slbl',style:{color:ac.c}},'La Historia'),
+      h('div',{className:'stxt'},cl.na.map((p,i)=>h('p',{className:'np',key:i},p)))
+    ),
+    h('div',{className:'sblk'},
+      h('div',{className:'slbl',style:{color:ac.c}},'Doctrina para enseñar'),
+      h('div',{className:'stxt'},cl.doc)
+    ),
+    h('div',{className:'sblk'},
+      h('div',{className:'slbl',style:{color:ac.c}},'Para el corazón del niño'),
+      h('div',{className:'stxt'},cl.apl)
+    ),
+    h('div',{className:'obox'},
+      h('div',{className:'blbl',style:{color:ac.c}},'Oración sugerida'),
+      h('p',{style:{fontStyle:'italic',fontSize:'0.87rem',lineHeight:1.75,color:'#2c1810'}},cl.or)
+    ),
+    h('div',{className:'sblk'},
+      h('div',{className:'slbl',style:{color:ac.c}},'Materiales y actividades'),
+      h('ul',{className:'ml'},cl.mat.map((m,i)=>h('li',{key:i},m)))
+    ),
+    h('div',{style:{height:'2rem'}})
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app')).render(h(App));
+</script>
+</body>
+</html>
